@@ -62,7 +62,7 @@ void bubble_sort_int(int *base, size_t num, size_t size, cmp_t compare)
 }
 int main()
 {
-        size_t end = 20000, steps_count = 5;
+        size_t end = 2000000, steps_count = 5;
         clock_t start, stop;
         int step = end / steps_count, num = 0, size = sizeof(int), seconds = 0;
         int* array = (int*) malloc(sizeof(int) * end), * gen_array = NULL;

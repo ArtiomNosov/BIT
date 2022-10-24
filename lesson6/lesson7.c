@@ -1,6 +1,7 @@
 // Разные алгоритмы сортировок. O-символика. Шаблон STD qsort(...)
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 
 int num[10] = {
 1,3,6,5,8,7,9,6,2,0
@@ -29,6 +30,7 @@ int main(void)
     printf("Sorted array: ");
     for(i = 0; i <10; i++) 
         printf("%d ", num[i]);
+    getch();        
     return 0;
 }
 

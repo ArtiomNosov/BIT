@@ -1,6 +1,7 @@
 #ifndef MATRIX_H 
 #define MATRIX_H  
 #include <stdlib.h>
+#include "../matrix_old/MatrixDouble.h"
 typedef struct vector_t {
         double* data;
         size_t n;
@@ -34,5 +35,4 @@ double dot_vector(vector_t* v1, vector_t* v2);
 matrix_t* dot_matrix(matrix_t* m1, matrix_t* m2);
 vector_t* get_matrix_column(matrix_t* matrix, size_t j);
 double det_matrix(matrix_t* matrix);
-double determinant_recursive(double* arr, int n, int i, int j);
 #endif

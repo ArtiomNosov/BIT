@@ -1,26 +1,34 @@
 #include "list.h"
+#define tprint(A) \
+{\
+        static int b = 0;\
+        b++;\
+        printf("%s\n", A);\
+}
 void proces_error_list(list_error_t error)
 {
         // LOGIC
 }
 void check_list_errors()
 {
+        // tprint("check_list_errors");
         if(sizeof(unsigned char) != 1)
                 proces_error_list(CHAR_ERROR);
                 exit(CHAR_ERROR);
 }
 list* calloc_list()
 {
-        list* res = (list*) calloc(1, sizeof(list));
-        printf("res == NULL: %d\n", res == NULL);
-        if (res == NULL)
+        // tprint("calloc_list");
+        list* res = calloc(1, sizeof(list));
+        if (res == NULL) {
                 proces_error_list(NO_MEMORY);
                 return NULL;
-        printf("res: %x\n", res);
+        }
         return res;
 }
 list* create_list(void* arr, size_t n, size_t size, copy_t copy)
 {
+        // tprint("create_list");
         if (arr == NULL || n == 0 || size == 0)
                 return NULL;
         list* res = calloc_list();
@@ -31,9 +39,11 @@ list* create_list(void* arr, size_t n, size_t size, copy_t copy)
 }
 void proces_list(list* cont, f_t f)
 {
-        if (cont == NULL)
+        // tprint("proces_list");
+        if (cont == NULL) {
                 proces_error_list(NULL_LIST);
                 return;
+        }
         node* elem = cont->head;
         while (elem != NULL)
         {
@@ -44,6 +54,7 @@ void proces_list(list* cont, f_t f)
 }
 void free_list(list* cont)
 {
+        // tprint("free_list");
         if (cont == NULL)
                 return;
         node* elem = cont->head, *cur = NULL;
@@ -57,6 +68,7 @@ void free_list(list* cont)
 }
 void delete_list(list* cont, del_t del)
 {
+        // tprint("delete_list");
         if (cont == NULL)
                 return;
         proces_list(cont, del);
@@ -64,9 +76,11 @@ void delete_list(list* cont, del_t del)
 }
 void insert_list(list* cont, void* data, copy_t copy)
 {
-        if (cont == NULL)
+        // tprint("insert_list");
+        if (cont == NULL) {
                 proces_error_list(NULL_LIST);
                 return;
+        }
         node* new_node = (node*) calloc(1, sizeof(node));
         new_node->data = copy(data);
         new_node->next = NULL;

@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include "list.h"
+#include "number.h"
 #define TYPE int
 #define TYPE_SIZE sizeof(TYPE)
+#define N 10
 TYPE* copy(TYPE* p)
 {
         TYPE* res = calloc(1, sizeof(TYPE));
@@ -22,5 +24,14 @@ int main()
         // printf("%d\n", list_int->n);
         proces_list(list_int, (f_t)proces);
         delete_list(list_int, (del_t)free);
+        list* list_numbers = calloc_list();
+        for (size_t i = 0; i < N; i++) {
+                number_t* buf = create_number(arr[i]);
+                insert_list(list_numbers, buf, (copy_t)copy_number);
+                free(buf);
+        }
+        printf("\n");
+        print_list(list_numbers);
+        delete_list(list_numbers, (del_t)free);
         return 0;
 }

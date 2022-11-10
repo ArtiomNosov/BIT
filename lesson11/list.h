@@ -28,4 +28,6 @@ list* create_list(void* arr, size_t n, size_t size, copy_t copy);
 void proces_list(list* cont, f_t f);
 void delete_list(list* cont, del_t del);
 void insert_list(list* cont, void* data, copy_t copy);
+// list_up
+void print_list(list* cont);
 #endif

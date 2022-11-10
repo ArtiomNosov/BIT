@@ -1,6 +1,8 @@
 #include "base.h"
-typedef struct number {
+#include <stdio.h>
+typedef struct number_t {
         base_t base;
-        int n;
-} number;
-void print_number(void*);
+        int number;
+} number_t;
+number_t* create_number(int number);
+number_t* copy_number(number_t* number);

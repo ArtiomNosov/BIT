@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "list.h"
 #include "number.h"
+#include "cat.h"
+#include "dog.h"
 #define TYPE int
 #define TYPE_SIZE sizeof(TYPE)
 #define N 10
@@ -33,5 +35,13 @@ int main()
         printf("\n");
         print_list(list_numbers);
         delete_list(list_numbers, (del_t)free);
+        animal_t* cat = (animal_t*)create_cat();
+        animal_t* dog = (animal_t*)create_dog();
+        printf("\n");
+        cry_animal(cat);
+        cry_animal(dog);
+        ((base_t*)cat)->print(cat);
+        free(cat);
+        free(dog);
         return 0;
 }

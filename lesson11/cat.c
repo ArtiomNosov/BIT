@@ -10,7 +10,7 @@ void cry_cat(cat_t* cat)
 cat_t* create_cat()
 {
         cat_t* res = calloc(1, sizeof(cat_t));
-        ((base_t*)res)->print = (print_t)print_cat;
-        ((animal_t*)res)->cry = (print_t)cry_cat;
+        set_base(res, print_cat, free, create_cat, NULL);
+        set_animal(res, cry_cat);
         return res;
 }

@@ -7,4 +7,5 @@ typedef struct animal_t {
         print_t cry;
 } animal_t;
 void cry_animal(animal_t* animal);
+void set_animal(animal_t* animal, print_t cry);
 #endif

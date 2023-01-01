@@ -11,5 +11,5 @@ void print_elem(void* elem)
 void print_list(list* cont)
 {
         // ERROR PROCESSING
-        proces_list(cont, print_base);
+        proces_list(cont, print_elem);
 }

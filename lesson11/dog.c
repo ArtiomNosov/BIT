@@ -10,7 +10,7 @@ void cry_dog(dog_t* cat)
 dog_t* create_dog()
 {
         dog_t* res = calloc(1, sizeof(dog_t));
-        ((base_t*)res)->print = (print_t)print_dog;
-        ((animal_t*)res)->cry = (print_t)cry_dog;
+        set_base(res, print_dog, free, create_dog, NULL);
+        set_animal(res, cry_dog);
         return res;
 }

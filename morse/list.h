@@ -9,12 +9,13 @@ typedef struct node {
         void* data;
 } node;
 typedef struct list {
-        base_t base;
         size_t n;
         node* head;
         node* tail;
 } list;
 typedef unsigned char byte;
+typedef void*(*copy_t)(void*);
+typedef f_t del_t;
 typedef enum list_error_t {
         NO_MEMORY,
         NULL_LIST,
@@ -23,10 +24,9 @@ typedef enum list_error_t {
 } list_error_t;
 void check_list_errors();
 list* calloc_list();
-list* create_list(void* arr, size_t n, size_t size, copy_t copy);
 void proces_list(list* cont, f_t f);
-void insert_list(list* cont, void* data);
-void free_list(list* cont);
+void delete_list(list* cont, del_t del);
+void insert_list(list* cont, void* data, copy_t copy);
 // list_up
 void print_list(list* cont);
 #endif
